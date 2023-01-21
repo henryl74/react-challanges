@@ -19,7 +19,7 @@ export class Content extends Component {
                 isLoaded: true,
                 posts: savedPosts
             })
-        }, 500);
+        }, 2000);
     }
 
 

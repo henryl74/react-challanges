@@ -9,7 +9,7 @@ export class Content extends Component {
         super(props)
         this.state = {
             isLoaded: false,
-            posts: []
+            posts: [],
         }
     }
 
@@ -28,6 +28,7 @@ export class Content extends Component {
         let filteredPosts = savedPosts.filter((post) => {
             return post.name.includes(textInput)
         })
+
         this.setState({
             posts: filteredPosts 
         })
@@ -41,7 +42,11 @@ export class Content extends Component {
                     <h1>My Photos</h1>
                     <form>
                         <label htmlFor="searchInput">Search:</label>
-                        <input type="search" id="searchInput" placeholder="by author" onChange={this.handleSearchBar} />
+                        <input 
+                        type="search" 
+                        id="searchInput" 
+                        placeholder="By Author" 
+                        onChange={this.handleSearchBar} />
                         <h4>Posts Found: {this.state.posts.length}</h4>
                     </form>
                 </div>
@@ -64,7 +69,9 @@ export class Content extends Component {
                     {/* Part 2: Creating a child component */}
 
                     {
-                        this.state.isLoaded === true ? <PostItem savedPosts={this.state.posts} /> : <Loader />
+                        this.state.isLoaded === true ?
+                        <PostItem savedPosts={this.state.posts} />
+                        : <Loader />
                     }
                 </div>
             </div>
